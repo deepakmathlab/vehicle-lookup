@@ -32,3 +32,4 @@ function displayTable(arr){
   document.getElementById("output").innerHTML = html;
 }
 
+
