@@ -1,35 +1,108 @@
-const vehicles = [
-  {plate:"KA17HN6465",owner:"Deepak S",rc:"RC-65783",insurance:"INS-98342",expiry_rc:"2026-05-10",expiry_insurance:"2025-12-30",notes:"Valid"},
-  {plate:"KA17HS5539",owner:"Bharath B S",rc:"RC-90873",insurance:"INS-56421",expiry_rc:"2027-02-18",expiry_insurance:"2025-08-14",notes:"Valid"},
-  {plate:"KA17HB6062",owner:"Nandan G S",rc:"RC-23489",insurance:"INS-99822",expiry_rc:"2025-09-01",expiry_insurance:"2025-04-20",notes:"Insurance Expiring Soon"},
-  {plate:"KA04EF3456",owner:"Sneha Kumar",rc:"RC-55567",insurance:"INS-78312",expiry_rc:"2026-07-22",expiry_insurance:"2025-09-09",notes:"PUC Expiring Soon"},
-  {plate:"KA05GH7654",owner:"Arun Nair",rc:"RC-88888",insurance:"INS-99001",expiry_rc:"2025-06-12",expiry_insurance:"2025-10-11",notes:"Valid"}
-];
-
-function normalize(s){return s.replace(/\s+/g,"").toUpperCase();}
-
-function searchVehicle(){
-  const query = normalize(document.getElementById("plate").value);
-  const res = vehicles.find(v=>normalize(v.plate)===query);
-  if(!query){document.getElementById("output").innerHTML="<p>Please enter a vehicle number.</p>";return;}
-  if(!res){document.getElementById("output").innerHTML="<p style='color:red;'>No record found for "+query+"</p>";return;}
-  displayTable([res]);
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background: linear-gradient(120deg, #0061ff, #60efff);
+  color: #222;
+  min-height: 100vh;
 }
 
-function showAll(){
-  displayTable(vehicles);
+header {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 25px 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-function displayTable(arr){
-  let html = "<table><tr><th>Plate</th><th>Owner</th><th>RC</th><th>Insurance</th><th>PUC</th><th>RC Expiry</th><th>Insurance Expiry</th><th>PUC Expiry</th><th>Notes</th></tr>";
-  arr.forEach(v=>{
-    html+=`<tr>
-      <td>${v.plate}</td><td>${v.owner}</td><td>${v.rc}</td><td>${v.insurance}</td>
-      <td>${v.puc}</td><td>${v.expiry_rc}</td><td>${v.expiry_insurance}</td><td>${v.expiry_puc}</td><td>${v.notes}</td>
-    </tr>`;
-  });
-  html+="</table>";
-  document.getElementById("output").innerHTML = html;
+header h1 {
+  margin: 0;
+  color: #0061ff;
+  font-size: 1.8rem;
 }
 
+header p {
+  margin: 5px 0 0;
+  color: #333;
+  font-size: 0.95rem;
+}
 
+.container {
+  background: white;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 15px;
+  color: #0061ff;
+}
+
+input[type=text] {
+  width: 80%;
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+button.search {
+  background: #0061ff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.search:hover {
+  background: #004dc1;
+}
+
+.card {
+  background: #f7f9ff;
+  border: 1px solid #cfe2ff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  text-align: left;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #004dc1;
+  margin-top: 0;
+}
+
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.card th {
+  text-align: left;
+  padding: 6px;
+  color: #333;
+  width: 35%;
+}
+
+.card td {
+  padding: 6px;
+  color: #111;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255,255,255,0.8);
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #333;
+  box-shadow: 0 -1px 6px rgba(0,0,0,0.15);
+}
