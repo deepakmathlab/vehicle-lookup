@@ -1,6 +1,6 @@
 const vehicles = [
   {plate:"KA17HN6465",owner:"Deepak S",model:"Pulsar 150",type:"Two Wheeler",rc:"RC-65783",insurance:"INS-98342",expiry_rc:"2026-05-10",expiry_insurance:"2025-12-30"},
-  {plate:"KA17HS5529",owner:"Bharath B S",model:"R15 v4",type:"Two Wheeler",rc:"RC-90873",insurance:"INS-56421",expiry_rc:"2027-02-18",expiry_insurance:"2025-08-14"},
+  {plate:"KA17HS5539",owner:"Bharath B S",model:"R15 v4",type:"Two Wheeler",rc:"RC-90873",insurance:"INS-56421",expiry_rc:"2027-02-18",expiry_insurance:"2025-08-14"},
   {plate:"KA17HB6062",owner:"Nandan G S",model:"Hyundai i20",type:"Four Wheeler",rc:"RC-23489",insurance:"INS-99822",expiry_rc:"2025-09-01",expiry_insurance:"2025-04-20"},
   {plate:"KA17HO9966",owner:"Narendra K N",model:"TVS Jupiter",type:"Three Wheeler",rc:"RC-55567",insurance:"INS-78312",expiry_rc:"2024-07-22",expiry_insurance:"2024-09-09"},
   {plate:"KA05GH7654",owner:"Arun Nair",model:"Tata Nexon",type:"Four Wheeler",rc:"RC-88888",insurance:"INS-99001",expiry_rc:"2025-06-12",expiry_insurance:"2025-10-11"}
@@ -54,3 +54,4 @@ function displayVehicle(v){
   </div>`;
   document.getElementById("output").innerHTML = html;
 }
+
